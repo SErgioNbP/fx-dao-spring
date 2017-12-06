@@ -6,7 +6,7 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="768.0" prefWidth="1024.0" style="-fx-background-image: url('logo.png'); -fx-background-repeat: no-repeat; -fx-background-position: center;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.bootcamp.controller.MainController">
+<VBox prefHeight="768.0" prefWidth="1024.0" style="-fx-background-image: url('logo.png'); -fx-background-repeat: no-repeat; -fx-background-position: center;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>

@@ -11,11 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserServiceImpl implements UserService {
 
     private UserDao userDao;
-    private TransactionManager tx;
 
-    public UserServiceImpl(UserDao userDao, TransactionManager tx) {
+    public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;
-        this.tx = tx;
     }
 
     @Override

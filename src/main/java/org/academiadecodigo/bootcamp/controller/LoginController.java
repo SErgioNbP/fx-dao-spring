@@ -55,7 +55,7 @@ public class LoginController implements Controller {
     }
 
     public void initialize() {
-
+        System.out.println(this);
         //userService = (UserService) ServiceRegistry.getServiceRegistry().getService(UserService.class.getSimpleName());
         showLogin();
 
@@ -177,6 +177,7 @@ public class LoginController implements Controller {
     }
 
     public void setUserService(UserServiceImpl userService) {
+        System.out.println(this);
         this.userService = userService;
     }
 

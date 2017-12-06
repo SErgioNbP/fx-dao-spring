@@ -9,11 +9,9 @@
 
     <bean id="bootcampService" class="org.academiadecodigo.bootcamp.service.bootcamp.BootcampServiceImpl">
         <constructor-arg index="0" ref="jpaBootcampDao"/>
-        <constructor-arg index="1" ref="transactionmanager"/>
     </bean>
 
     <bean id="userService" class="org.academiadecodigo.bootcamp.service.user.UserServiceImpl">
         <constructor-arg index="0" ref="jpaUserDao"/>
-        <constructor-arg index="1" ref="transactionmanager"/>
     </bean>
 </beans>

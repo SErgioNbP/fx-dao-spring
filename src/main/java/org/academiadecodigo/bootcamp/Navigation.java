@@ -9,6 +9,7 @@ import org.academiadecodigo.bootcamp.controller.Controller;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public final class Navigation {
@@ -21,6 +22,7 @@ public final class Navigation {
     private LinkedList<Scene> scenes = new LinkedList<>();
     private Map<String, Controller> controllers = new HashMap<>();
     private Stage stage;
+    //private List scenes;
     //private Map controllers;
 
     private Navigation() {
@@ -65,6 +67,9 @@ public final class Navigation {
             // Instantiate the view and the controller
             FXMLLoader fxmlLoader;
             fxmlLoader = new FXMLLoader(getClass().getResource(VIEW_PATH + "/" + view + ".fxml"));
+            fxmlLoader.setController(controllers.get(view));
+
+
             root = fxmlLoader.load();
 
             // Store the the controller
@@ -115,5 +120,6 @@ public final class Navigation {
     public Map getControllers() {
         return controllers;
     }
+
 }
 

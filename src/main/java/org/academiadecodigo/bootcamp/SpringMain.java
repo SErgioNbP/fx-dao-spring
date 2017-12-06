@@ -3,6 +3,7 @@ package org.academiadecodigo.bootcamp;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.academiadecodigo.bootcamp.controller.LoginController;
+import org.academiadecodigo.bootcamp.controller.MainController;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

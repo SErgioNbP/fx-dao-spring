@@ -5,6 +5,7 @@ import org.academiadecodigo.bootcamp.persistence.dao.Dao;
 import org.academiadecodigo.bootcamp.persistence.jpa.JpaSessionManager;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import java.util.List;
 
@@ -13,7 +14,9 @@ import java.util.List;
  */
 public abstract class JpaDao<T> implements Dao<T> {
 
-    private JpaSessionManager sm;
+    @PersistenceContext
+    protected EntityManager em;
+    //private JpaSessionManager sm;
 
     private Class<T> tClass;
 

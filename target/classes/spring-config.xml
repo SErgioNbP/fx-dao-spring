@@ -9,6 +9,6 @@
     <import resource="presentation.xml"/>
     <import resource="service.xml"/>
 
-    <!-- <import resource="aop-transaction-manager.xml"/> -->
+    <import resource="aop-transaction-manager.xml"/>
 
 </beans>

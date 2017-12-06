@@ -26,8 +26,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.Calendar;
 
-public class Main extends Application {
-
+public class Main {
+/*
     private static final String PERSISTENCE_UNIT = "test";
     private EntityManagerFactory emf;
 
@@ -143,6 +143,6 @@ public class Main extends Application {
     public void stop() {
         emf.close();
     }
-
+*/
 }
 

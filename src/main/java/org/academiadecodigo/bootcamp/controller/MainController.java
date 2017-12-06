@@ -36,7 +36,6 @@ public class MainController implements Controller {
      * the root element has been completely processed
      */
     public void initialize() {
-
         //bootcampService = (BootcampService) ServiceRegistry.getServiceRegistry().getService(BootcampService.class.getSimpleName());
 
         if (bootcampService == null) {
