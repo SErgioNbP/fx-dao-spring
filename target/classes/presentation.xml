@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="navigation" class="org.academiadecodigo.bootcamp.Navigation" factory-method="getInstance"/>
+
+    <bean id="bootcampDetailsController" class="org.academiadecodigo.bootcamp.controller.BootcampDetailsController">
+        <property name="bootcampService" ref="bootcampService"/>
+        <property name="mainController" ref="mainController"/>
+    </bean>
+
+    <bean id="bootcampListController" class="org.academiadecodigo.bootcamp.controller.BootcampListController">
+        <property name="bootcampService" ref="bootcampService"/>
+        <property name="mainController" ref="mainController"/>
+    </bean>
+
+    <bean id="mainController" class="org.academiadecodigo.bootcamp.controller.MainController">
+        <property name="bootcampService" ref="bootcampService"/>
+        <property name="bootcampDetailsController" ref="bootcampDetailsController"/>
+    </bean>
+
+    <bean id="loginController" class="org.academiadecodigo.bootcamp.controller.LoginController">
+        <property name="userService" ref="userService"/>
+    </bean>
+
+    <bean id="controllers" class="org.academiadecodigo.bootcamp.Navigation">
+        <property name="controllers">
+            <map>
+                <entry key="one" value="9.99"/>
+                <entry key="two" value="2.75"/>
+                <entry key="six" value="3.99"/>
+            </map>
+        </property>
+    </bean>
+
+</beans>

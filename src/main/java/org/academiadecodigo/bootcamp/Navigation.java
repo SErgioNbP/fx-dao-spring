@@ -21,18 +21,17 @@ public final class Navigation {
     private LinkedList<Scene> scenes = new LinkedList<>();
     private Map<String, Controller> controllers = new HashMap<>();
     private Stage stage;
+    //private Map controllers;
 
     private Navigation() {
+
     }
 
     public static Navigation getInstance() {
 
-        if (instance == null) {
-            instance = new Navigation();
-        }
+        instance = new Navigation();
 
         return instance;
-
     }
 
     public void setStage(Stage stage) {
@@ -109,5 +108,12 @@ public final class Navigation {
     }
 
 
+    public void setControllers(Map controllers) {
+        this.controllers = controllers;
+    }
+
+    public Map getControllers() {
+        return controllers;
+    }
 }
 

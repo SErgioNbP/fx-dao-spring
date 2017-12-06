@@ -11,7 +11,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import org.academiadecodigo.bootcamp.model.Bootcamp;
 import org.academiadecodigo.bootcamp.model.CodeCadet;
 import org.academiadecodigo.bootcamp.service.bootcamp.BootcampService;
-import org.academiadecodigo.bootcamp.service.ServiceRegistry;
+import org.academiadecodigo.bootcamp.service.bootcamp.BootcampServiceImpl;
 
 public class BootcampDetailsController implements Controller {
 
@@ -42,10 +42,11 @@ public class BootcampDetailsController implements Controller {
     @FXML
     private TableColumn<Bootcamp, Integer> bootcampCol;
 
-    private BootcampService bootcampService;
+    //private BootcampService bootcampService;
     private MainController mainController;
 
     private ObservableList<CodeCadet> tableData;
+    private BootcampServiceImpl bootcampService;
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
@@ -53,7 +54,7 @@ public class BootcampDetailsController implements Controller {
 
     public void initialize() {
 
-        bootcampService = (BootcampService) ServiceRegistry.getServiceRegistry().getService(BootcampService.class.getSimpleName());
+        //bootcampService = (BootcampService) ServiceRegistry.getServiceRegistry().getService(BootcampService.class.getSimpleName());
 
         nameCol.setCellValueFactory(new PropertyValueFactory<CodeCadet, String>("name"));
         genderCol.setCellValueFactory(new PropertyValueFactory<CodeCadet, String>("gender"));
@@ -96,6 +97,14 @@ public class BootcampDetailsController implements Controller {
 
     public void onButton(ActionEvent actionEvent) {
         mainController.showBootcampList();
+    }
+
+    public void setBootcampService(BootcampServiceImpl bootcampService) {
+        this.bootcampService = bootcampService;
+    }
+
+    public BootcampServiceImpl getBootcampService() {
+        return bootcampService;
     }
 }
 

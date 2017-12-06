@@ -2,6 +2,7 @@ package org.academiadecodigo.bootcamp;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import org.academiadecodigo.bootcamp.controller.LoginController;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -16,11 +17,22 @@ public class SpringMain extends Application {
 
     public static void main(String[] args) {
 
+        launch(args);
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
         applicationContext = new ClassPathXmlApplicationContext("/spring-config.xml");
+
+        // Bean instantiation using a constuctor with no arguments
+        navigation = applicationContext.getBean("navigation", Navigation.class);
+
+        navigation.setStage(primaryStage);
+
+        navigation.loadScreen(LoginController.getName());
+
+        primaryStage.setTitle("Academia Código");
+        primaryStage.show();
     }
 }

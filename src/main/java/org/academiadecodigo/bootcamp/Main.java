@@ -15,7 +15,6 @@ import org.academiadecodigo.bootcamp.persistence.dao.jpa.JpaCodeCadetDao;
 import org.academiadecodigo.bootcamp.persistence.dao.jpa.JpaUserDao;
 import org.academiadecodigo.bootcamp.persistence.jpa.JpaSessionManager;
 import org.academiadecodigo.bootcamp.persistence.jpa.JpaTransactionManager;
-import org.academiadecodigo.bootcamp.service.ServiceRegistry;
 import org.academiadecodigo.bootcamp.service.bootcamp.BootcampService;
 import org.academiadecodigo.bootcamp.service.bootcamp.BootcampServiceImpl;
 import org.academiadecodigo.bootcamp.service.user.UserService;
@@ -118,8 +117,8 @@ public class Main extends Application {
         bootcampService.addCadet(bootcampService.findAll().get(0).getId(), cadet1);
         bootcampService.addCadet(bootcampService.findAll().get(0).getId(), cadet2);
 
-        ServiceRegistry.getServiceRegistry().registerService(userService);
-        ServiceRegistry.getServiceRegistry().registerService(bootcampService);
+        //ServiceRegistry.getServiceRegistry().registerService(userService);
+        //ServiceRegistry.getServiceRegistry().registerService(bootcampService);
 
     }
 

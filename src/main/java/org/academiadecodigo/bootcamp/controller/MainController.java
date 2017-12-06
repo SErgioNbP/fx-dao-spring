@@ -5,7 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
 import org.academiadecodigo.bootcamp.Navigation;
 import org.academiadecodigo.bootcamp.service.bootcamp.BootcampService;
-import org.academiadecodigo.bootcamp.service.ServiceRegistry;
+import org.academiadecodigo.bootcamp.service.bootcamp.BootcampServiceImpl;
 
 /**
  * Controller for the main view
@@ -22,7 +22,9 @@ public class MainController implements Controller {
     private Parent bootcampListView;
     private Parent bootcampDetailsView;
 
-    private BootcampService bootcampService;
+    //private BootcampService bootcampService;
+    //private BootcampDetailsController bootcampDetailsController;
+    private BootcampServiceImpl bootcampService;
     private BootcampDetailsController bootcampDetailsController;
 
     public static String getName() {
@@ -35,7 +37,7 @@ public class MainController implements Controller {
      */
     public void initialize() {
 
-        bootcampService = (BootcampService) ServiceRegistry.getServiceRegistry().getService(BootcampService.class.getSimpleName());
+        //bootcampService = (BootcampService) ServiceRegistry.getServiceRegistry().getService(BootcampService.class.getSimpleName());
 
         if (bootcampService == null) {
             throw new IllegalStateException("Unable to load user service from registry");
@@ -91,6 +93,22 @@ public class MainController implements Controller {
 
         bootcampDetailsController.loadBootcamp(id);
         container.getChildren().add(bootcampDetailsView);
+    }
+
+    public void setBootcampService(BootcampServiceImpl bootcampService) {
+        this.bootcampService = bootcampService;
+    }
+
+    public BootcampServiceImpl getBootcampService() {
+        return bootcampService;
+    }
+
+    public void setBootcampDetailsController(BootcampDetailsController bootcampDetailsController) {
+        this.bootcampDetailsController = bootcampDetailsController;
+    }
+
+    public BootcampDetailsController getBootcampDetailsController() {
+        return bootcampDetailsController;
     }
 }
 

@@ -2,7 +2,6 @@ package org.academiadecodigo.bootcamp.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -11,12 +10,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import org.academiadecodigo.bootcamp.Navigation;
 import org.academiadecodigo.bootcamp.model.User;
-import org.academiadecodigo.bootcamp.service.ServiceRegistry;
 import org.academiadecodigo.bootcamp.service.user.UserService;
+import org.academiadecodigo.bootcamp.service.user.UserServiceImpl;
 import org.academiadecodigo.bootcamp.utils.Security;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 /**
  * Controller for the login view
@@ -49,9 +45,10 @@ public class LoginController implements Controller {
     @FXML
     Label errorLabel;
 
-    private UserService userService;
+    //private UserService userService;
 
     private boolean login = true;
+    private UserServiceImpl userService;
 
     public static String getName() {
         return NAME;
@@ -59,7 +56,7 @@ public class LoginController implements Controller {
 
     public void initialize() {
 
-        userService = (UserService) ServiceRegistry.getServiceRegistry().getService(UserService.class.getSimpleName());
+        //userService = (UserService) ServiceRegistry.getServiceRegistry().getService(UserService.class.getSimpleName());
         showLogin();
 
     }
@@ -179,4 +176,11 @@ public class LoginController implements Controller {
 
     }
 
+    public void setUserService(UserServiceImpl userService) {
+        this.userService = userService;
+    }
+
+    public UserServiceImpl getUserService() {
+        return userService;
+    }
 }

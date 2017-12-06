@@ -10,7 +10,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import org.academiadecodigo.bootcamp.model.Bootcamp;
 import org.academiadecodigo.bootcamp.service.bootcamp.BootcampService;
-import org.academiadecodigo.bootcamp.service.ServiceRegistry;
+import org.academiadecodigo.bootcamp.service.bootcamp.BootcampServiceImpl;
 
 import java.util.Date;
 
@@ -31,8 +31,9 @@ public class BootcampListController implements Controller {
     @FXML
     private TableColumn<Bootcamp, Date> endCol;
 
-    private BootcampService bootcampService;
+    //private BootcampService bootcampService;
     private MainController mainController;
+    private BootcampServiceImpl bootcampService;
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
@@ -40,7 +41,7 @@ public class BootcampListController implements Controller {
 
     public void initialize() {
 
-        bootcampService = (BootcampService) ServiceRegistry.getServiceRegistry().getService(BootcampService.class.getSimpleName());
+        //bootcampService = (BootcampService) ServiceRegistry.getServiceRegistry().getService(BootcampService.class.getSimpleName());
 
         idCol.setCellValueFactory(new PropertyValueFactory<Bootcamp, Integer>("id"));
         locationCol.setCellValueFactory(new PropertyValueFactory<Bootcamp, String>("location"));
@@ -62,5 +63,12 @@ public class BootcampListController implements Controller {
 
     }
 
+    public void setBootcampService(BootcampServiceImpl bootcampService) {
+        this.bootcampService = bootcampService;
+    }
+
+    public BootcampServiceImpl getBootcampService() {
+        return bootcampService;
+    }
 }
 

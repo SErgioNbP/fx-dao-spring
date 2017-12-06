@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="sessionManager" class="org.academiadecodigo.bootcamp.persistence.jpa.JpaSessionManager">
+        <constructor-arg ref="emFactory"/>
+    </bean>
+
+    <bean id="jpaUserDao" class="org.academiadecodigo.bootcamp.persistence.dao.jpa.JpaUserDao">
+        <constructor-arg ref="sessionManager"/>
+    </bean>
+
+    <bean id="jpaBootcampDao" class="org.academiadecodigo.bootcamp.persistence.dao.jpa.JpaBootcampDao">
+        <constructor-arg ref="sessionManager"/>
+    </bean>
+
+    <bean id="JpaCodeCadetDao" class="org.academiadecodigo.bootcamp.persistence.dao.jpa.JpaCodeCadetDao">
+        <constructor-arg ref="sessionManager"/>
+    </bean>
+
+</beans>
