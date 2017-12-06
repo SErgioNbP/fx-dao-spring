@@ -50,6 +50,16 @@ public class LoginController implements Controller {
     private boolean login = true;
     private UserService userService;
 
+    private Navigation navigation;
+
+    public Navigation getNavigation() {
+        return navigation;
+    }
+
+    public void setNavigation(Navigation navigation) {
+        this.navigation = navigation;
+    }
+
     public static String getName() {
         return NAME;
     }
@@ -107,7 +117,8 @@ public class LoginController implements Controller {
         }
 
         showConsoleText("login accepted");
-        Navigation.getInstance().loadScreen(MainController.getName());
+        System.out.println(MainController.getName());
+        navigation.loadScreen(MainController.getName());
 
     }
 
@@ -180,5 +191,6 @@ public class LoginController implements Controller {
 
         this.userService = userService;
     }
+
 
 }

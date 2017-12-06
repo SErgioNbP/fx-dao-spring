@@ -18,23 +18,11 @@ public final class Navigation {
     public final static int MIN_HEIGHT = 768;
 
     public final static String VIEW_PATH = "/view";
-    private static Navigation instance;
     private LinkedList<Scene> scenes = new LinkedList<>();
     private Map<String, Controller> controllers = new HashMap<>();
     private Stage stage;
     //private List scenes;
     //private Map controllers;
-
-    private Navigation() {
-
-    }
-
-    public static Navigation getInstance() {
-
-        instance = new Navigation();
-
-        return instance;
-    }
 
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -71,10 +59,8 @@ public final class Navigation {
 
             root = fxmlLoader.load();
 
-            // Store the the controller
-            controllers.put(view, fxmlLoader.<Controller>getController());
-
         } catch (IOException e) {
+            e.printStackTrace();
             System.out.println("Failure to load view " + view + " : " + e.getMessage());
         }
 

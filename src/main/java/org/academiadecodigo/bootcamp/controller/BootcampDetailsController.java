@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.academiadecodigo.bootcamp.Navigation;
 import org.academiadecodigo.bootcamp.model.Bootcamp;
 import org.academiadecodigo.bootcamp.model.CodeCadet;
 import org.academiadecodigo.bootcamp.service.bootcamp.BootcampService;
@@ -44,6 +45,16 @@ public class BootcampDetailsController implements Controller {
 
     //private BootcampService bootcampService;
     private MainController mainController;
+
+    private Navigation navigation;
+
+    public Navigation getNavigation() {
+        return navigation;
+    }
+
+    public void setNavigation(Navigation navigation) {
+        this.navigation = navigation;
+    }
 
     private ObservableList<CodeCadet> tableData;
     private BootcampService bootcampService;

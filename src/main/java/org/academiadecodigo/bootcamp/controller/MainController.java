@@ -27,6 +27,16 @@ public class MainController implements Controller {
     private BootcampService bootcampService;
     private BootcampDetailsController bootcampDetailsController;
 
+    private Navigation navigation;
+
+    public Navigation getNavigation() {
+        return navigation;
+    }
+
+    public void setNavigation(Navigation navigation) {
+        this.navigation = navigation;
+    }
+
     public static String getName() {
         return NAME;
     }
@@ -51,27 +61,27 @@ public class MainController implements Controller {
 
     public void onQuit() {
 
-        Navigation.getInstance().close();
+        navigation.close();
 
     }
 
     public void onLogout() {
 
-        Navigation.getInstance().back();
+        navigation.back();
 
     }
 
     private void setupBootcampList() {
 
-        bootcampListView = Navigation.getInstance().loadView(BOOTCAMP_LIST);
-        BootcampListController bootcampListController = (BootcampListController) Navigation.getInstance().getController(BOOTCAMP_LIST);
+        bootcampListView = navigation.loadView(BOOTCAMP_LIST);
+        BootcampListController bootcampListController = (BootcampListController) navigation.getController(BOOTCAMP_LIST);
         bootcampListController.setMainController(this);
 
     }
 
     private void setupBootcampDetails() {
-        bootcampDetailsView = Navigation.getInstance().loadView(BOOTCAMP_DETAILS);
-        bootcampDetailsController = (BootcampDetailsController) Navigation.getInstance().getController(BOOTCAMP_DETAILS);
+        bootcampDetailsView = navigation.loadView(BOOTCAMP_DETAILS);
+        bootcampDetailsController = (BootcampDetailsController) navigation.getController(BOOTCAMP_DETAILS);
         bootcampDetailsController.setMainController(this);
     }
 

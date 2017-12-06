@@ -8,6 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import org.academiadecodigo.bootcamp.Navigation;
 import org.academiadecodigo.bootcamp.model.Bootcamp;
 import org.academiadecodigo.bootcamp.service.bootcamp.BootcampService;
 import org.academiadecodigo.bootcamp.service.bootcamp.BootcampServiceImpl;
@@ -34,6 +35,16 @@ public class BootcampListController implements Controller {
     //private BootcampService bootcampService;
     private MainController mainController;
     private BootcampService bootcampService;
+
+    private Navigation navigation;
+
+    public Navigation getNavigation() {
+        return navigation;
+    }
+
+    public void setNavigation(Navigation navigation) {
+        this.navigation = navigation;
+    }
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;

@@ -3,7 +3,30 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="navigation" class="org.academiadecodigo.bootcamp.Navigation" factory-method="getInstance">
+    <bean id="bootcampDetailsController" class="org.academiadecodigo.bootcamp.controller.BootcampDetailsController">
+        <property name="bootcampService" ref="bootcampService"/>
+        <property name="mainController" ref="mainController"/>
+        <property name="navigation" ref="navigation"/>
+    </bean>
+
+    <bean id="bootcampListController" class="org.academiadecodigo.bootcamp.controller.BootcampListController">
+        <property name="bootcampService" ref="bootcampService"/>
+        <property name="mainController" ref="mainController"/>
+        <property name="navigation" ref="navigation"/>
+    </bean>
+
+    <bean id="mainController" class="org.academiadecodigo.bootcamp.controller.MainController">
+        <property name="bootcampService" ref="bootcampService"/>
+        <property name="bootcampDetailsController" ref="bootcampDetailsController"/>
+        <property name="navigation" ref="navigation"/>
+    </bean>
+
+    <bean id="loginController" class="org.academiadecodigo.bootcamp.controller.LoginController">
+        <property name="userService" ref="userService"/>
+        <property name="navigation" ref="navigation"/>
+    </bean>
+
+    <bean id="navigation" class="org.academiadecodigo.bootcamp.Navigation">
 
         <property name="controllers">
             <map>
@@ -14,25 +37,6 @@
             </map>
         </property>
 
-    </bean>
-
-    <bean id="bootcampDetailsController" class="org.academiadecodigo.bootcamp.controller.BootcampDetailsController">
-        <property name="bootcampService" ref="bootcampService"/>
-        <property name="mainController" ref="mainController"/>
-    </bean>
-
-    <bean id="bootcampListController" class="org.academiadecodigo.bootcamp.controller.BootcampListController">
-        <property name="bootcampService" ref="bootcampService"/>
-        <property name="mainController" ref="mainController"/>
-    </bean>
-
-    <bean id="mainController" class="org.academiadecodigo.bootcamp.controller.MainController">
-        <property name="bootcampService" ref="bootcampService"/>
-        <property name="bootcampDetailsController" ref="bootcampDetailsController"/>
-    </bean>
-
-    <bean id="loginController" class="org.academiadecodigo.bootcamp.controller.LoginController">
-        <property name="userService" ref="userService"/>
     </bean>
 
 </beans>
