@@ -8,7 +8,7 @@ import org.academiadecodigo.bootcamp.persistence.jpa.JpaSessionManager;
 public class JpaBootcampDao extends JpaDao<Bootcamp> implements BootcampDao {
 
     public JpaBootcampDao(JpaSessionManager sm) {
-        super(sm, Bootcamp.class);
+        super(Bootcamp.class);
     }
 }
 

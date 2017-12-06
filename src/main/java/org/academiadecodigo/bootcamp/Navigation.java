@@ -69,7 +69,6 @@ public final class Navigation {
             fxmlLoader = new FXMLLoader(getClass().getResource(VIEW_PATH + "/" + view + ".fxml"));
             fxmlLoader.setController(controllers.get(view));
 
-
             root = fxmlLoader.load();
 
             // Store the the controller
@@ -111,7 +110,6 @@ public final class Navigation {
         stage.close();
 
     }
-
 
     public void setControllers(Map controllers) {
         this.controllers = controllers;

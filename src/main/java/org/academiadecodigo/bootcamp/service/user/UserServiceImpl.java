@@ -7,7 +7,7 @@ import org.academiadecodigo.bootcamp.persistence.TransactionManager;
 import org.academiadecodigo.bootcamp.utils.Security;
 import org.springframework.transaction.annotation.Transactional;
 
-@Transactional
+
 public class UserServiceImpl implements UserService {
 
     private UserDao userDao;
@@ -28,6 +28,7 @@ public class UserServiceImpl implements UserService {
      * @param password the user password
      * @return true if authenticated
      */
+    @Transactional
     @Override
     public boolean authenticate(String username, String password) {
 
@@ -45,6 +46,7 @@ public class UserServiceImpl implements UserService {
      *
      * @param user the new user to add
      */
+    @Transactional
     @Override
     public void addUser(User user) {
 
@@ -60,6 +62,7 @@ public class UserServiceImpl implements UserService {
      * @param username the user name used to lookup a user
      * @return a new User if found, null otherwise
      */
+    @Transactional
     @Override
     public User findByName(String username) {
 
@@ -75,6 +78,7 @@ public class UserServiceImpl implements UserService {
      *
      * @return the number of users
      */
+    @Transactional
     @Override
     public long count() {
 

@@ -46,7 +46,7 @@ public class BootcampDetailsController implements Controller {
     private MainController mainController;
 
     private ObservableList<CodeCadet> tableData;
-    private BootcampServiceImpl bootcampService;
+    private BootcampService bootcampService;
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
@@ -99,12 +99,9 @@ public class BootcampDetailsController implements Controller {
         mainController.showBootcampList();
     }
 
-    public void setBootcampService(BootcampServiceImpl bootcampService) {
+    public void setBootcampService(BootcampService bootcampService) {
         this.bootcampService = bootcampService;
     }
 
-    public BootcampServiceImpl getBootcampService() {
-        return bootcampService;
-    }
 }
 

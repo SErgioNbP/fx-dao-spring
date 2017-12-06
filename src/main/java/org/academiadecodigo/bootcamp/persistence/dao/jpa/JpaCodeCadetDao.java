@@ -7,7 +7,7 @@ import org.academiadecodigo.bootcamp.persistence.jpa.JpaSessionManager;
 public class JpaCodeCadetDao extends JpaDao<CodeCadet> implements CodeCadetDao {
 
     public JpaCodeCadetDao(JpaSessionManager sm) {
-        super(sm, CodeCadet.class);
+        super(CodeCadet.class);
     }
 }
 

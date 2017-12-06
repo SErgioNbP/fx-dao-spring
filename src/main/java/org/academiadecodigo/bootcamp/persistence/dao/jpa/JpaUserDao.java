@@ -13,30 +13,27 @@ import java.util.List;
 
 public class JpaUserDao extends JpaDao<User> implements UserDao {
 
-    private JpaSessionManager sm;
+    public JpaUserDao() {
+        super(User.class);
+    }
 
-    public JpaUserDao(JpaSessionManager sm) {
-        super(sm, User.class);
-        this.sm = sm;
+    public JpaUserDao(JpaSessionManager jpaSessionManager) {
+        super(User.class);
     }
 
     public User findByUsername(String username) {
 
-        try {
+        TypedQuery<User> query = em.createQuery("SELECT user FROM User user WHERE user.username = :username", User.class);
+        query.setParameter("username", username);
+        List<User> u = query.getResultList();
 
-            EntityManager em = sm.getCurrentSession();
-            TypedQuery<User> query = em.createQuery("SELECT user FROM User user WHERE user.username = :username", User.class);
-            query.setParameter("username", username);
-            return query.getSingleResult();
-
-        } catch (NoResultException ex) {
+        if (u.isEmpty()) {
 
             return null;
 
-        } catch (PersistenceException ex) {
+        } else {
 
-            throw new TransactionException(ex);
-
+            return u.get(0);
         }
     }
 }

@@ -20,74 +20,36 @@ public abstract class JpaDao<T> implements Dao<T> {
 
     private Class<T> tClass;
 
-    public JpaDao(JpaSessionManager sm, Class<T> tClass) {
-        this.sm = sm;
+    public JpaDao(Class<T> tClass) {
         this.tClass = tClass;
     }
 
     @Override
     public T saveOrUpdate(T t) {
 
-        try {
-
-            EntityManager em = sm.getCurrentSession();
-            return em.merge(t);
-
-        } catch (PersistenceException ex) {
-            throw new TransactionException(ex);
-        }
+        return em.merge(t);
     }
 
     @Override
     public void delete(Integer id) {
 
-        try {
-
-            EntityManager em = sm.getCurrentSession();
-            em.remove(em.find(tClass, id));
-
-        } catch (PersistenceException ex) {
-            throw new TransactionException(ex);
-        }
+        em.remove(em.find(tClass, id));
     }
 
     @Override
     public T findById(Integer id) {
 
-        try {
-
-            EntityManager em = sm.getCurrentSession();
-            return em.find(tClass, id);
-
-        } catch (PersistenceException ex) {
-
-            throw new TransactionException(ex);
-        }
+        return em.find(tClass, id);
     }
 
     @Override
     public List<T> findAll() {
 
-        try {
-
-            EntityManager em = sm.getCurrentSession();
-
-            return em.createQuery("from " + tClass.getName()).getResultList();
-
-        } catch (PersistenceException ex) {
-            throw new TransactionException(ex);
-        }
+        return em.createQuery("from " + tClass.getName()).getResultList();
     }
 
     public Integer count() {
 
-        try {
-
-            EntityManager em = sm.getCurrentSession();
-            return em.createQuery("SELECT COUNT(user) FROM User user", Integer.class).getSingleResult();
-
-        } catch (PersistenceException ex) {
-            throw new TransactionException(ex);
-        }
+        return em.createQuery("SELECT COUNT(user) FROM User user", Integer.class).getSingleResult();
     }
 }

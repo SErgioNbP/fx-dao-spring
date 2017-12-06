@@ -33,7 +33,7 @@ public class BootcampListController implements Controller {
 
     //private BootcampService bootcampService;
     private MainController mainController;
-    private BootcampServiceImpl bootcampService;
+    private BootcampService bootcampService;
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
@@ -63,12 +63,9 @@ public class BootcampListController implements Controller {
 
     }
 
-    public void setBootcampService(BootcampServiceImpl bootcampService) {
+    public void setBootcampService(BootcampService bootcampService) {
         this.bootcampService = bootcampService;
     }
 
-    public BootcampServiceImpl getBootcampService() {
-        return bootcampService;
-    }
 }
 

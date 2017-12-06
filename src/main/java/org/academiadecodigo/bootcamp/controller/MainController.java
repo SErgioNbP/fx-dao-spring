@@ -24,7 +24,7 @@ public class MainController implements Controller {
 
     //private BootcampService bootcampService;
     //private BootcampDetailsController bootcampDetailsController;
-    private BootcampServiceImpl bootcampService;
+    private BootcampService bootcampService;
     private BootcampDetailsController bootcampDetailsController;
 
     public static String getName() {
@@ -94,12 +94,8 @@ public class MainController implements Controller {
         container.getChildren().add(bootcampDetailsView);
     }
 
-    public void setBootcampService(BootcampServiceImpl bootcampService) {
+    public void setBootcampService(BootcampService bootcampService) {
         this.bootcampService = bootcampService;
-    }
-
-    public BootcampServiceImpl getBootcampService() {
-        return bootcampService;
     }
 
     public void setBootcampDetailsController(BootcampDetailsController bootcampDetailsController) {

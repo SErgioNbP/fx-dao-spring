@@ -48,14 +48,14 @@ public class LoginController implements Controller {
     //private UserService userService;
 
     private boolean login = true;
-    private UserServiceImpl userService;
+    private UserService userService;
 
     public static String getName() {
         return NAME;
     }
 
     public void initialize() {
-        System.out.println(this);
+
         //userService = (UserService) ServiceRegistry.getServiceRegistry().getService(UserService.class.getSimpleName());
         showLogin();
 
@@ -176,12 +176,9 @@ public class LoginController implements Controller {
 
     }
 
-    public void setUserService(UserServiceImpl userService) {
-        System.out.println(this);
+    public void setUserService(UserService userService) {
+
         this.userService = userService;
     }
 
-    public UserServiceImpl getUserService() {
-        return userService;
-    }
 }
